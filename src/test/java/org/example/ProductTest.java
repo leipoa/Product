@@ -26,12 +26,13 @@ public class ProductTest {
         Manager manager = new Manager(repo);
         Book book1 = new Book(1, "Книга1", 300, "Автор1");
         Book book2 = new Book(2, "Книга2", 250, "Автор2");
+        Book book3 = new Book(4, "Сборник1",400,"Автор3");
 
         manager.add(book1);
         manager.add(book2);
-
-        Product[] actual = manager.searchBy("2");
-        Product[] expected = {book2};
+        manager.add(book3);
+        Product[] actual = manager.searchBy("Книга");
+        Product[] expected = {book1, book2};
 
         Assertions.assertArrayEquals(expected, actual);
     }
