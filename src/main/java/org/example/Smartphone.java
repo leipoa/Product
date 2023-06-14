@@ -1,7 +1,8 @@
 package org.example;
 
-public class Smartphone extends Product{
+public class Smartphone extends Product {
     private String brand;
+
     public String getBrand() {
         return brand;
     }

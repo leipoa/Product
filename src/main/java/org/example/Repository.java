@@ -11,9 +11,7 @@ public class Repository {
         tmp[tmp.length - 1] = item;
         products = tmp;
     }
-    public Product[] getItems() {
-        return products;
-    }
+
     public Product[] findAll(){
         return products;
     }

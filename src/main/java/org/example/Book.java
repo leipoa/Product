@@ -3,10 +3,6 @@ package org.example;
 public class Book extends Product {
     private String author;
 
-    {
-        this.author = author;
-    }
-
     public String getAuthor() {
         return author;
     }
