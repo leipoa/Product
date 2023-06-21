@@ -10,7 +10,7 @@ public class ProductTest {
         Repository repo = new Repository();
         Manager manager = new Manager(repo);
         Book book1 = new Book(1, "Книга1", 300, "Автор1");
-        Smartphone smartphone1 =new Smartphone(2,"Смартфон1", 50_000, "Марка1");
+        Smartphone smartphone1 = new Smartphone(2, "Смартфон1", 50_000, "Марка1");
 
         manager.add(book1);
         manager.add((smartphone1));
@@ -20,13 +20,14 @@ public class ProductTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
-    public void testSearchBy(){
+    public void testSearchBy() {
         Repository repo = new Repository();
         Manager manager = new Manager(repo);
         Book book1 = new Book(1, "Книга1", 300, "Автор1");
         Book book2 = new Book(2, "Книга2", 250, "Автор2");
-        Book book3 = new Book(4, "Сборник1",400,"Автор3");
+        Book book3 = new Book(4, "Сборник1", 400, "Автор3");
 
         manager.add(book1);
         manager.add(book2);
@@ -36,6 +37,7 @@ public class ProductTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void testRemoveById() {
         Repository repo = new Repository();
@@ -53,6 +55,21 @@ public class ProductTest {
         Assertions.assertArrayEquals(expected, actual);
 
 
+    }
+
+    @Test
+    public void removeWrongId() {
+        Repository repo = new Repository();
+        Manager manager = new Manager(repo);
+        Book book1 = new Book(1, "Книга1", 300, "Автор1");
+        Book book2 = new Book(2, "Книга2", 250, "Автор2");
+        Book book3 = new Book(4, "Сборник1", 400, "Автор3");
+
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        Assertions.assertThrows(NotFoundException.class,
+                () -> repo.removeById(3));
     }
 }
 
